@@ -1,7 +1,12 @@
 <template>
   <div class="page-wrapper content-wrapper">
     <div class="topic__wrapper">
-      <Topic v-if="randomTopic" :text="randomTopic.text" />
+      <Topic
+        v-if="randomTopic"
+        :text="randomTopic.text"
+        :isFavorite="currentTopicIsFavorite"
+        @onFavoriteClick="toggleAsFavorite()"
+      />
       <div class="topic__nav">
         <button
           v-if="!allTopicsShown"

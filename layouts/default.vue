@@ -5,6 +5,15 @@
       <Nuxt />
     </div>
     <footer>
+      <!-- <button class="round-button">
+        Favorieten
+      </button>
+      <button class="round-button">
+        Favorieten
+      </button>
+      <button class="round-button">
+        Favorieten
+      </button> -->
       <!-- <div class="tab-bar">
         <button class="button tab-bar__button">
           Favorites
@@ -28,6 +37,7 @@ main {
 header {
   height: 55px;
   padding: env(safe-area-inset-top);
+  // border-radius: 0 0 25px 25px;
   background: #ccc;
 }
 .layout-wrapper {
@@ -36,7 +46,9 @@ header {
 }
 footer {
   height: 50px;
+  // border-radius: 25px 25px 0 0;
   background: #ccc;
+  padding: 0 20px;
   padding-bottom: env(safe-area-inset-bottom);
 }
 </style>
