@@ -10,7 +10,7 @@ export default {
     title: 'teatalk',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover' },
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
@@ -42,6 +42,11 @@ export default {
   pwa: {
     manifest: {
       lang: 'en'
+    },
+    meta: {
+      viewport: 'width=device-width, initial-scale=1.0, viewport-fit=cover',
+      appleStatusBarStyle: 'black-translucent',
+      nativeUI: true
     }
   },
 

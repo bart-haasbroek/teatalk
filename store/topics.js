@@ -1,4 +1,4 @@
-import data from 'assets/data/mock.json';
+import data from 'assets/data/topics.json';
 
 export const state = () => ({
     topics: data,
