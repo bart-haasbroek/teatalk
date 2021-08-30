@@ -72,6 +72,7 @@ export default {
   height: 100%;
   align-items: center;
   justify-content: center;
+  padding-top: env(safe-area-inset-top);
 }
 h1 {
   color: white;
