@@ -5,6 +5,7 @@ export const state = () => ({
     shownTopics: [],
     favorites: [],
     currentTopicId: undefined,
+    showFavorites: false,
 });
 
 export const actions = {
@@ -53,6 +54,9 @@ export const mutations = {
     },
     updateFavoriteTopics(state, payload) {
         state.favorites = payload;
+    },
+    showFavorites(state, payload) {
+        state.showFavorites = payload;
     },
 };
 

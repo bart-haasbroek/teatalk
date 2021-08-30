@@ -5,28 +5,74 @@
       <Nuxt />
     </div>
     <footer>
-      <!-- <button class="round-button">
-        Favorieten
-      </button>
-      <button class="round-button">
-        Favorieten
-      </button>
-      <button class="round-button">
-        Favorieten
-      </button> -->
-      <!-- <div class="tab-bar">
-        <button class="button tab-bar__button">
-          Favorites
+      <div class="tab-bar">
+        <button
+          class="button tab-bar__button"
+          :class="{ 'is-active': !showFavoriteTopics }"
+          @click="$store.commit('topics/showFavorites', false)"
+        >
+          <div class="tab-bar__button-icon">
+            <img
+              src="~/assets/icons/heart-white.svg"
+              v-if="!showFavoriteTopics"
+              alt="is favorite icon"
+            />
+            <img src="~/assets/icons/heart.svg" v-else alt="is favorite icon" />
+          </div>
+          Praatjes
         </button>
-      </div> -->
+        <button
+          class="button tab-bar__button"
+          :class="{ 'is-active': showFavoriteTopics }"
+          @click="$store.commit('topics/showFavorites', true)"
+        >
+          <div class="tab-bar__button-icon">
+            <img
+              src="~/assets/icons/heart-white.svg"
+              v-if="showFavoriteTopics"
+              alt="is favorite icon"
+            />
+            <img src="~/assets/icons/heart.svg" v-else alt="is favorite icon" />
+          </div>
+          Favorieten
+        </button>
+      </div>
     </footer>
   </main>
 </template>
 
+<script>
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    showFavoriteTopics() {
+      console.log("this.$store.state.topics", this.$store.state.topics);
+      return this.$store.state.topics.showFavorites;
+    }
+  }
+};
+</script>
+
 <style lang="scss">
 .tab-bar {
+  display: flex;
   &__button {
-    padding: 18px 10px;
+    background: transparent;
+    font-size: 12px;
+    color: black;
+    padding: 0;
+    height: 50px;
+    border-radius: 0;
+
+    &.is-active {
+      background: #42d3ec;
+    }
+  }
+  &__button-icon {
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    margin-bottom: 5px;
   }
 }
 main {
@@ -35,8 +81,7 @@ main {
   grid-template-rows: 1fr auto;
 }
 header {
-  height: 55px;
-  padding: env(safe-area-inset-top);
+  height: calc(55px + env(safe-area-inset-top));
   // border-radius: 0 0 25px 25px;
   background: #ccc;
 }
@@ -45,10 +90,7 @@ header {
   display: grid;
 }
 footer {
-  height: 50px;
-  // border-radius: 25px 25px 0 0;
+  height: calc(50px + env(safe-area-inset-bottom));
   background: #ccc;
-  padding: 0 20px;
-  padding-bottom: env(safe-area-inset-bottom);
 }
 </style>

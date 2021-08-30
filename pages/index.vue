@@ -20,9 +20,6 @@
             Begin opnieuw
           </button>
         </div>
-        <!-- <button @click="toggleAsFavorite()" class="button topic__next-button">
-          {{ currentTopicIsFavorite ? "Verwijder als" : "Maak" }} favoriet
-        </button> -->
       </div>
     </div>
   </div>
