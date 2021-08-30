@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div v-else>
+    <div v-else class="placeholder-text">
       <p>
         {{
           showFavoriteTopics
@@ -77,5 +77,8 @@ export default {
 }
 .topic__next-button {
   margin: 20px auto;
+}
+.placeholder-text {
+  text-align: center;
 }
 </style>
