@@ -42,6 +42,7 @@ export const actions = {
         context.commit("setCurrentTopicId", { topicId, shownTopicsIds });
     },
     toggleFavoriteTopic(context) {
+        const isShowingFavorites = context.state.showFavorites;
         const topicId = context.getters.getCurrentTopicId;
         const favorites = [...context.getters.getFavoriteTopics];
         const favoriteIndex = favorites.indexOf(topicId);
@@ -52,6 +53,9 @@ export const actions = {
         }
         localStorage.setItem('favorites', JSON.stringify(favorites))
         context.commit("updateFavoriteTopics", favorites);
+        if (isShowingFavorites) {
+            context.dispatch('nextTopic');
+        }
     },
 };
 
